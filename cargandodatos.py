@@ -27,7 +27,7 @@ acv = st.radio(
     options=["Sí, he sufrido un ACV", "No, no he sufrido un ACV"]
 )
 
-opciones_fumar = ["Never smoked", "Formerly smoked", "Smokes", "No smokes"]
+opciones_fumar = ["Nunca fumé", "Fumé anteriormente", "Fumo actualmente", "No especificar"]
 humo = st.selectbox("Seleccione su hábito de consumo de tabaco:", opciones_fumar)
 
 # Convertir las entradas a valores numéricos
@@ -36,10 +36,10 @@ cardiopatia_valor = 1 if cardiopatia == "Sí, padezco de cardiopatía" else 0
 acv_valor = 1 if acv == "Sí, he sufrido un ACV" else 0
 
 humo_valor = {
-    "Never smoked": 0,
-    "Formerly smoked": 1,
-    "Smokes": 2,
-    "No smokes": 3
+    "Nunca fumé": 0,
+    "Fumé anteriormente": 1,
+    "Fumo actualmente": 2,
+    "No especificar": 3
 }[humo]
 
 # Preparar las características de entrada
@@ -67,7 +67,7 @@ if st.button("Realizar predicción"):
     if prediccion_imc < 18.5:
         st.write("Clasificación: Peso insuficiente.")
     elif 18.5 <= prediccion_imc < 24.9:
-        st.write("Clasificación: Saludable.")
+        st.write("Clasificación: Peso normal.")
     elif 25 <= prediccion_imc < 29.9:
         st.write("Clasificación: Sobrepeso.")
     else:
