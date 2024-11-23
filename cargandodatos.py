@@ -27,7 +27,7 @@ acv = st.radio(
     options=["Sí, he sufrido un ACV", "No, no he sufrido un ACV"]
 )
 
-opciones_fumar = ["Nunca fumé", "Fumé anteriormente", "Fumo actualmente", "No especificar"]
+opciones_fumar = ["Nunca fumé", "Fumé anteriormente", "Fumo actualmente", "No fumo"]
 humo = st.selectbox("Seleccione su hábito de consumo de tabaco:", opciones_fumar)
 
 # Convertir las entradas a valores numéricos
@@ -39,7 +39,7 @@ humo_valor = {
     "Nunca fumé": 0,
     "Fumé anteriormente": 1,
     "Fumo actualmente": 2,
-    "No especificar": 3
+    "No fumo": 3
 }[humo]
 
 # Preparar las características de entrada
